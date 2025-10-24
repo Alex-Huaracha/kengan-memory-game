@@ -83,8 +83,8 @@ function App() {
     <>
       {/* Header */}
       <header>
-        <img className="logo" src="/src/assets/images/logo.png" alt="Logo" />
         <h1 className="title">Memory Card</h1>
+        <img className="logo" src="/src/assets/images/logo.png" alt="Logo" />
         {/* Scoreboard */}
         <div className="scoreboard">
           <p>Best Score: {bestScore}</p>
