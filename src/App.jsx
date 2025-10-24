@@ -8,6 +8,7 @@ const ANIME_ID = 40269;
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [clickedCards, setClickedCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -31,8 +32,6 @@ function App() {
           image: item.character.images.webp.image_url,
         }));
 
-        // console.log('Fetched Characters:', formattedCards);
-
         setCards(shuffleArray(formattedCards));
       } catch (err) {
         setError(err.message);
@@ -44,7 +43,16 @@ function App() {
     fetchKenganCharacters();
   }, []);
 
-  // console.log('->', cards);
+  const handleCardClick = (cardId) => {
+    // console.log(`Card with ID ${cardId} clicked`);
+    if (clickedCards.includes(cardId)) {
+      alert('Game Over! You clicked the same character twice.');
+      return;
+    }
+
+    setClickedCards([...clickedCards, cardId]);
+    setCards(shuffleArray(cards));
+  };
 
   if (loading) {
     return <div className="loading">Loading Characters...</div>;
@@ -64,7 +72,7 @@ function App() {
       {/* Main Content - Card Grid*/}
       <main className="card-grid">
         {cards.map((card) => (
-          <Card key={card.id} card={card} />
+          <Card key={card.id} card={card} onCardClick={handleCardClick} />
         ))}
       </main>
 
