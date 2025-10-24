@@ -77,6 +77,28 @@ footer {
   }
 }
 
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-family: var(--font-family-game);
+  font-size: var(--font-size-lg);
+  padding: 2rem;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
 @media (min-width: 768px) {
   .logo {
     width: clamp(190px, 40vw, 420px);

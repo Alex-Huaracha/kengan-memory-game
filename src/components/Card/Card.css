@@ -1,0 +1,25 @@
+.card {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(129, 230, 217, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.card p {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-family: var(--font-family-game);
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { shuffleArray } from './utils/shuffleArray';
+import Card from './components/Card/Card';
 
 // Kengan Ashura ID : 40269
 const ANIME_ID = 40269;
@@ -60,7 +61,12 @@ function App() {
         <img className="logo" src="/src/assets/images/logo.png" alt="Logo" />
         <h1 className="title">Memory Card</h1>
       </header>
-      {/* Main Content */}
+      {/* Main Content - Card Grid*/}
+      <main className="card-grid">
+        {cards.map((card) => (
+          <Card key={card.id} card={card} />
+        ))}
+      </main>
 
       {/* Footer */}
       <footer>
