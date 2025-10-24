@@ -49,6 +49,7 @@ function App() {
     // console.log(`Card with ID ${cardId} clicked`);
     if (clickedCards.includes(cardId)) {
       alert('Game Over! You clicked the same character twice.');
+      resetGame();
       return;
     }
 
@@ -61,6 +62,12 @@ function App() {
       setBestScore(newScore);
     }
 
+    setCards(shuffleArray(cards));
+  };
+
+  const resetGame = () => {
+    setScore(0);
+    setClickedCards([]);
     setCards(shuffleArray(cards));
   };
 
