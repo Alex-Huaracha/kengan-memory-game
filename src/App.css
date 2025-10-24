@@ -8,3 +8,37 @@
   max-width: 100%;
   padding: 1rem;
 }
+
+header {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  max-width: 100%;
+  width: clamp(150px, 70vw, 360px);
+}
+
+.title {
+  font-family: var(--font-family-game);
+  font-weight: var(--font-weight-game);
+  color: var(--text-color);
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: clamp(190px, 40vw, 420px);
+  }
+}
+@media (min-width: 1200px) {
+  .logo {
+    width: clamp(210px, 20vw, 480px);
+  }
+}
