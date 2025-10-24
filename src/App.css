@@ -1,0 +1,10 @@
+/* Mobile-first layout */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+  padding: 1rem;
+}
