@@ -83,6 +83,10 @@ footer {
   font-family: var(--font-family-game);
 }
 
+.scoreboard p:first-child {
+  color: var(--text-color-secondary);
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

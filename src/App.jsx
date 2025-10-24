@@ -10,6 +10,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -55,6 +56,11 @@ function App() {
 
     setScore(newScore);
     setClickedCards([...clickedCards, cardId]);
+
+    if (newScore > bestScore) {
+      setBestScore(newScore);
+    }
+
     setCards(shuffleArray(cards));
   };
 
@@ -74,6 +80,7 @@ function App() {
         <h1 className="title">Memory Card</h1>
         {/* Scoreboard */}
         <div className="scoreboard">
+          <p>Best Score: {bestScore}</p>
           <p>Score: {score}</p>
         </div>
       </header>
