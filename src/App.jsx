@@ -9,6 +9,7 @@ const ANIME_ID = 40269;
 function App() {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
+  const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -50,6 +51,9 @@ function App() {
       return;
     }
 
+    const newScore = score + 1;
+
+    setScore(newScore);
     setClickedCards([...clickedCards, cardId]);
     setCards(shuffleArray(cards));
   };
@@ -68,6 +72,10 @@ function App() {
       <header>
         <img className="logo" src="/src/assets/images/logo.png" alt="Logo" />
         <h1 className="title">Memory Card</h1>
+        {/* Scoreboard */}
+        <div className="scoreboard">
+          <p>Score: {score}</p>
+        </div>
       </header>
       {/* Main Content - Card Grid*/}
       <main className="card-grid">

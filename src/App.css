@@ -77,6 +77,12 @@ footer {
   }
 }
 
+.scoreboard {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  font-family: var(--font-family-game);
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
