@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { shuffleArray } from './utils/shuffleArray';
 
 // Kengan Ashura ID : 40269
 const ANIME_ID = 40269;
 
 function App() {
+  const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,7 +23,6 @@ function App() {
         }
 
         const data = await response.json();
-        // console.log(data);
 
         const formattedCards = data.data.map((item) => ({
           id: item.character.mal_id,
@@ -29,7 +30,9 @@ function App() {
           image: item.character.images.webp.image_url,
         }));
 
-        console.log(formattedCards);
+        // console.log('Fetched Characters:', formattedCards);
+
+        setCards(shuffleArray(formattedCards));
       } catch (err) {
         setError(err.message);
       } finally {
@@ -39,6 +42,8 @@ function App() {
 
     fetchKenganCharacters();
   }, []);
+
+  // console.log('->', cards);
 
   if (loading) {
     return <div className="loading">Loading Characters...</div>;
