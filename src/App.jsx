@@ -11,9 +11,20 @@ function App() {
       {/* Main Content */}
 
       {/* Footer */}
-      {/* <footer>
-        <p>© 2024 My Company</p>
-      </footer> */}
+      <footer>
+        &copy; 2025 Designed and developed by
+        <a
+          href="https://github.com/Alex-Huaracha"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link"
+        >
+          <svg className="icon" aria-hidden="true">
+            <use href="#icon-github"></use>
+          </svg>
+          Alex Huaracha
+        </a>
+      </footer>
     </>
   );
 }

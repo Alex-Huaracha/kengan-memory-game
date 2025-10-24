@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Burned&display=swap');
 
 :root {
   /* Colors */
@@ -24,14 +24,17 @@
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
 
-  /* Font Family */
+  /* Font Family Game*/
   --font-family-game: 'Rubik Burned', system-ui;
   --font-weight-game: 400;
   --font-style-game: normal;
+
+  /* Font Family */
+  --font-family-base: 'Roboto', sans-serif;
 }
 
 body {
-  font-family: system-ui, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-base);
   background-color: var(--bg-primary);
   color: var(--text-color);
   min-height: 100vh;
