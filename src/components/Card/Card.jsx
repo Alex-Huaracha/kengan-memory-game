@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Card.css';
+import cardBackImage from '../../assets/images/card-back.webp';
 
 export default function Card({ card, onCardClick, isShuffling }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -28,7 +29,7 @@ export default function Card({ card, onCardClick, isShuffling }) {
         </div>
 
         <div className="card-back">
-          <img src="/src/assets/images/card-back.webp" alt="Card back" />
+          <img src={cardBackImage} alt="Card back" />
         </div>
       </div>
     </div>

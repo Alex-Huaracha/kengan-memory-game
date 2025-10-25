@@ -3,6 +3,7 @@ import './App.css';
 import { shuffleArray } from './utils/shuffleArray';
 import Card from './components/Card/Card';
 import Modal from './components/Modal/Modal';
+import logo from './assets/images/logo.png';
 
 // Kengan Ashura ID : 40269
 const ANIME_ID = 40269;
@@ -125,7 +126,7 @@ function App() {
       {/* Header */}
       <header>
         <h1 className="title">Memory Card</h1>
-        <img className="logo" src="/src/assets/images/logo.png" alt="Logo" />
+        <img className="logo" src={logo} alt="Logo" />
         {/* Scoreboard */}
         <div className="scoreboard">
           <p>Best Score: {bestScore}</p>
