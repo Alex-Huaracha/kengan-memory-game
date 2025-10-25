@@ -2,6 +2,9 @@
 
 Memory card game built with React featuring characters from Kengan Ashura anime.
 
+![CV Forge Demo](https://github.com/user-attachments/assets/7216caa4-0b8a-4375-af3f-71f8f3778d70)
+
+
 ## Game Rules
 
 - Click cards to reveal characters
