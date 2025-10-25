@@ -44,11 +44,15 @@ function App() {
       }
     };
 
+    const savedBestScore = localStorage.getItem('bestScore');
+    if (savedBestScore) {
+      setBestScore(parseInt(savedBestScore));
+    }
+
     fetchKenganCharacters();
   }, []);
 
   const handleCardClick = (cardId) => {
-    // console.log(`Card with ID ${cardId} clicked`);
     if (clickedCards.includes(cardId)) {
       alert('Game Over! You clicked the same character twice.');
       resetGame();
@@ -61,13 +65,20 @@ function App() {
 
     if (newScore > bestScore) {
       setBestScore(newScore);
+      localStorage.setItem('bestScore', newScore);
+    }
+
+    if (newScore === cards.length) {
+      alert('🎉 Congratulations! You won! Perfect score!');
+      resetGame();
+      return;
     }
 
     setIsShuffling(true);
     setTimeout(() => {
       setCards(shuffleArray(cards));
       setIsShuffling(false);
-    }, 1500);
+    }, 1200);
   };
 
   const resetGame = () => {
