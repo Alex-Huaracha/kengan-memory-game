@@ -66,7 +66,7 @@ function App() {
     setTimeout(() => {
       setCards(shuffleArray(cards));
       setIsShuffling(false);
-    }, 600);
+    }, 1500);
   };
 
   const resetGame = () => {

@@ -9,9 +9,11 @@ export default function Card({ card, onCardClick, isShuffling }) {
       setIsFlipped(true);
       const timer = setTimeout(() => {
         setIsFlipped(false);
-      }, 600);
+      }, 1500);
 
       return () => clearTimeout(timer);
+    } else {
+      setIsFlipped(false);
     }
   }, [isShuffling]);
   return (
