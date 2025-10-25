@@ -35,7 +35,8 @@ function App() {
           image: item.character.images.jpg.image_url,
         }));
 
-        setCards(shuffleArray(formattedCards));
+        const randomCards = shuffleArray(formattedCards).slice(0, 12);
+        setCards(randomCards);
       } catch (err) {
         setError(err.message);
       } finally {

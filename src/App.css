@@ -7,6 +7,7 @@
   min-height: 100vh;
   max-width: 100%;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 header {
@@ -116,11 +117,17 @@ footer {
 }
 
 @media (min-width: 768px) {
+  #root {
+    height: 100vh;
+    justify-content: space-between;
+  }
+
   header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .logo {
@@ -145,6 +152,17 @@ footer {
   .card-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+
+    flex-grow: 1;
+    align-content: center;
+    overflow-y: auto;
+
+    margin-bottom: 0;
+  }
+
+  footer {
+    flex-shrink: 0;
+    margin-top: 0;
   }
 }
 
@@ -157,7 +175,7 @@ footer {
   }
 
   .card-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     max-width: 1200px;
   }
 }
