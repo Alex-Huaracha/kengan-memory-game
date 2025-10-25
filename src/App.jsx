@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { shuffleArray } from './utils/shuffleArray';
 import Card from './components/Card/Card';
+import Modal from './components/Modal/Modal';
 
 // Kengan Ashura ID : 40269
 const ANIME_ID = 40269;
@@ -14,6 +15,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isShuffling, setIsShuffling] = useState(false);
+  const [modal, setModal] = useState({
+    isOpen: false,
+    type: '',
+    title: '',
+    message: '',
+  });
 
   useEffect(() => {
     const fetchKenganCharacters = async () => {
@@ -54,8 +61,12 @@ function App() {
 
   const handleCardClick = (cardId) => {
     if (clickedCards.includes(cardId)) {
-      alert('Game Over! You clicked the same character twice.');
-      resetGame();
+      setModal({
+        isOpen: true,
+        type: 'game-over',
+        title: 'Game Over!',
+        message: `You clicked the same character twice. Final Score: ${score}`,
+      });
       return;
     }
 
@@ -69,8 +80,12 @@ function App() {
     }
 
     if (newScore === cards.length) {
-      alert('🎉 Congratulations! You won! Perfect score!');
-      resetGame();
+      setModal({
+        isOpen: true,
+        type: 'victory',
+        title: 'Victory!',
+        message: `Perfect score! You found all ${cards.length} characters!`,
+      });
       return;
     }
 
@@ -79,6 +94,11 @@ function App() {
       setCards(shuffleArray(cards));
       setIsShuffling(false);
     }, 1200);
+  };
+
+  const closeModal = () => {
+    setModal({ ...modal, isOpen: false });
+    resetGame();
   };
 
   const resetGame = () => {
@@ -123,7 +143,14 @@ function App() {
           />
         ))}
       </main>
-
+      {/* Modal */}
+      <Modal
+        isOpen={modal.isOpen}
+        onClose={closeModal}
+        title={modal.title}
+        message={modal.message}
+        type={modal.type}
+      />
       {/* Footer */}
       <footer>
         &copy; 2025 Designed and developed by
