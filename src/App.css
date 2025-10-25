@@ -7,7 +7,6 @@
   min-height: 100vh;
   max-width: 100%;
   padding: 1rem;
-  border: 2px solid white;
 }
 
 header {
@@ -20,8 +19,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  border: 2px solid white;
 }
 
 .title {

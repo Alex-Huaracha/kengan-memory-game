@@ -13,6 +13,7 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isShuffling, setIsShuffling] = useState(false);
 
   useEffect(() => {
     const fetchKenganCharacters = async () => {
@@ -31,7 +32,7 @@ function App() {
         const formattedCards = data.data.map((item) => ({
           id: item.character.mal_id,
           name: item.character.name,
-          image: item.character.images.webp.image_url,
+          image: item.character.images.jpg.image_url,
         }));
 
         setCards(shuffleArray(formattedCards));
@@ -54,7 +55,6 @@ function App() {
     }
 
     const newScore = score + 1;
-
     setScore(newScore);
     setClickedCards([...clickedCards, cardId]);
 
@@ -62,13 +62,22 @@ function App() {
       setBestScore(newScore);
     }
 
-    setCards(shuffleArray(cards));
+    setIsShuffling(true);
+    setTimeout(() => {
+      setCards(shuffleArray(cards));
+      setIsShuffling(false);
+    }, 600);
   };
 
   const resetGame = () => {
     setScore(0);
     setClickedCards([]);
-    setCards(shuffleArray(cards));
+    setIsShuffling(true);
+
+    setTimeout(() => {
+      setCards(shuffleArray(cards));
+      setIsShuffling(false);
+    }, 600);
   };
 
   if (loading) {
@@ -94,7 +103,12 @@ function App() {
       {/* Main Content - Card Grid*/}
       <main className="card-grid">
         {cards.map((card) => (
-          <Card key={card.id} card={card} onCardClick={handleCardClick} />
+          <Card
+            key={card.id}
+            card={card}
+            onCardClick={handleCardClick}
+            isShuffling={isShuffling}
+          />
         ))}
       </main>
 
